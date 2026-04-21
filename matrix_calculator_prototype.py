@@ -44,7 +44,7 @@ for i in range(row2):
 
 start_row_C=start_row_B+row2+3
 
-def multiply_matrices():
+def multiplication_matrices():
     lib=ct.CDLL("./matrix_op.dll")
 
     A=[]
@@ -61,14 +61,14 @@ def multiply_matrices():
     Array_Type2=ct.c_int * (row2*col2)
     Array_Type3=ct.c_int * (row1*col2)
 
-    a=Array_Type1()
-    b=Array_Type2()
+    a=Array_Type1(*A)
+    b=Array_Type2(*B)
     c=Array_Type3()
 
     lib.multiply_matrix.argtypes=[ct.c_int,ct.c_int,ct.c_int,ct.c_int,ct.POINTER(ct.c_int),ct.POINTER(ct.c_int),ct.POINTER(ct.c_int)]
     lib.multiply_matrix.restype=None
 
-    lib.mutiplication_matrix(row1,col1,row2,col2,a,b,c)
+    lib.multiply_matrix(row1,col1,row2,col2,a,b,c)
 
     for i in range(row1):
         for j in range(col2):
@@ -77,6 +77,6 @@ def multiply_matrices():
             label=tk.Label(matrix_frame,text=str(value),width=6,font=('Arial', 16),relief="solid")
             label.grid(row=start_row_C+i+1,column=j,padx=2,pady=2)
 
-evaluate_btn=tk.Button(matrix_frame,text="EVALUATE",command=multiply_matrices).grid(row=start_row_C,column=0,columnspan=5)
+evaluate_btn=tk.Button(matrix_frame,text="EVALUATE",command=multiplication_matrices).grid(row=start_row_C,column=0,columnspan=5)
 
 root.mainloop()
