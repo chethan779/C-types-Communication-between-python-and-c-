@@ -112,6 +112,7 @@ def set_matrix():
 
             submit_btn=tk.Button(set_matrix_add,text="SUBMIT",command=open_addition_matrix_win)
             submit_btn.grid(row=6,column=6,columnspan=6)
+
 # ******************************************************************************************************************************************
 
         def set_matrix_for_subtraction_matrix():
@@ -227,7 +228,7 @@ def set_matrix():
             row_entry2=tk.Entry(set_matrix_multiply)
             row_entry2.grid(row=4,column=6,columnspan=10)
 
-            tk.Label(set_matrix_multiply,text="Enter Number of rows for Matrix B").grid(row=6,column=0)
+            tk.Label(set_matrix_multiply,text="Enter Number of Columns for Matrix B").grid(row=6,column=0)
             col_entry2=tk.Entry(set_matrix_multiply)
             col_entry2.grid(row=6,column=6,columnspan=10) 
 
@@ -316,6 +317,7 @@ def set_matrix():
 
             submit_btn=tk.Button(set_matrix_multiply,text="SUBMIT",command=open_multiplication_matrix_win)
             submit_btn.grid(row=10,column=6,columnspan=6)
+
 # *******************************************************************************************************************************************
 
         if (operation == "add"):
@@ -324,7 +326,7 @@ def set_matrix():
             set_matrix_for_subtraction_matrix()
         elif (operation == "Multiply"):
             set_matrix_for_multiplication_matrix()
-            
+
 # ********************************************************************************************************************************************
 
 addition_matrix_button=tk.Button(matrix_frame,text="Addition_Matrix",width=20,height=5,command=lambda: set_operation("add"))
@@ -335,6 +337,6 @@ subtract_matrix_button=tk.Button(matrix_frame,text="Substraction_Matrix",width=2
 subtract_matrix_button.grid(row=0,column=10,columnspan=6,padx=20)
 
 multiply_matrix_button=tk.Button(matrix_frame,text="Multiplication_Matrix",width=20,height=5,command=lambda: set_operation("Multiply"))
-multiply_matrix_button.grid(row=10,column=3,columnspan=6,pady=20)
+multiply_matrix_button.grid(row=10,column=4,columnspan=6,pady=20)
 
 root.mainloop()
